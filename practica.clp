@@ -490,7 +490,13 @@
 
 
 
+(defmodule MAIN (export ?ALL))
 
+;;; Modulo de recopilacion de los datos del usuario
+(defmodule UserQuestions
+	(import MAIN ?ALL)
+	(export ?ALL)
+)
 
 
 (defclass Recommendation 
@@ -513,17 +519,17 @@
 )
 
 (deftemplate MAIN::User
-	(slot name (type STRING))
-	(slot semester (type INTEGER) (default -1))
+	(slot name)
+	(slot semester)
 )
 
 (defmessage-handler MAIN::Course print ()
 	(format t "Name: %s %n" ?self:nameOfCourse)
 	(printout t crlf)
 	(printout t "ECTS: ")
-	(format t "ECTS: %d" ?self::ECTS)
+	(format t "ECTS: %d" ?self:ECTS)
 	(printout t crlf)
-	(format t "Semester: %d" ?self::semester)	
+	(format t "Semester: %d" ?self:semester)	
 	(printout t crlf)
 	(format t "Hours: %d" ?self:hours)
 	(printout t crlf)
@@ -534,7 +540,7 @@
 	(progn$ (?specializedTheme (send ?self get-specializedThemes))
 		(format t "%s " (send ?specializedTheme get-nameOfTheme))
 	)
-        (printfout t crlf)
+        (printout t crlf)
 )
 
 (deffunction generalQuestion (?question)
@@ -568,18 +574,18 @@
    ?answer
 )
 
-(deffunction maxPointas ($?lista)
-	(bind ?max -1)
-	(bind ?elemtn nil)
-	(progn$ (?curr-rec $?lista)
-		(bind ?curr-cont (send ?curr-rec get-Course))
-		(bind ?curr-punt (send ?curr-rec get-points))
-		(if (> ?curr-punt ?max)
-			then 
-			(bind ?max ?curr-punt)
-			(bind ?element ?curr-rec)
-		)
-	)
+(deffunction maxPoints ($?lista)
+	(bind ?max-1)
+	(bind ?element nil)
+	;(progn$ (?curr-rec $?lista)
+	;	(bind ?curr-cont (send ?curr-rec get-course))
+	;	(bind ?curr-punt (send ?curr-rec get-points))
+	;	(if (> ?curr-punt ?max)
+	;		then 
+	;		(bind ?max ?curr-punt)
+	;		(bind ?element ?curr-rec)
+	;	)
+	;)
 	?element
 )
 
@@ -615,6 +621,6 @@
 (defrule UserQuestions::AskName 
 	(not (User))
 	=>
-	(bind ?name (GeneralQuestion "What's your name?"))
+	(bind ?name (generalQuestion "What's your name?"))
 	(assert (User (name ?name)))
 )
