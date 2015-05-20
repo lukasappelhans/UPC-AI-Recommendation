@@ -1062,14 +1062,14 @@
 )
 
 ;;; Print recommendations
-(defmessage-handler MAIN::Recomendation print ()
-	(printout t "-----------------------------------" crlf)
-	(printout t (send ?self:Course print))
-	(printout t crlf)
-	(format t "Recommendation level: %d %n" ?self:points)
-	(printout t crlf)
-	(printout t "-----------------------------------" crlf)
-)
+;;;(defmessage-handler MAIN::Recomendation print ()
+;;;	(printout t "-----------------------------------" crlf)
+;;;	(printout t (send ?self:Course print))
+;;;	(printout t crlf)
+;;;	(format t "Recommendation level: %d %n" ?self:points)
+;;;	(printout t crlf)
+;;;	(printout t "-----------------------------------" crlf)
+;;;)
 
 
 ;;; ************************************************************************
@@ -1154,6 +1154,27 @@
 		(bind ?answer (read))
     )
 	?answer
+)
+
+(deffunction optionQuestion (?question $?allowed-values)
+   (format t "%s "?question)
+   (progn$ (?curr-value $?allowed-values)
+		(format t "[%s]" ?curr-value)
+	)
+   (printout t ": ")
+   (bind ?answer (read))
+   (if (lexemep ?answer) 
+       then (bind ?answer (lowcase ?answer)))
+   (while (not (member ?answer ?allowed-values)) do
+      (format t "%s "?question)
+	  (progn$ (?curr-value $?allowed-values)
+		(format t "[%s]" ?curr-value)
+	  )
+	  (printout t ": ")
+      (bind ?answer (read))
+      (if (lexemep ?answer) 
+          then (bind ?answer (lowcase ?answer))))
+   ?answer
 )
 
 
@@ -1269,9 +1290,16 @@
 
 ;;; Modulo recopilacion
 
-(defrule UserQuestions::AskMaxHours 
+(defrule UserQuestions::AskUser 
 	(not (Preferences))
 	=>
 	(bind ?maxNumOfDevotedHours (integerQuestion "Please enter the maximum hours you can dedicate per week:"))
+	(bind ?maxNumOfLabHours (integerQuestion "Please enter the maximum hours you can dedicate to labs per week:"))
+	(bind ?maxNumOfCourses (integerQuestion "Please enter the maximum amount of courses:"))
+	(bind ?preferredHours (optionQuestion "Please enter your preferred hours:" MORNING AFTERNOON ANY))
 	(assert (Preferences (maxNumOfDevotedHours ?maxNumOfDevotedHours)))
+	(assert (Preferences (maxNumOfLabHours ?maxNumOfLabHours)))
+	(assert (Preferences (maxNumOfCourses ?maxNumOfCourses)))
+	(assert (Preferences (preferredHours ?preferredHours)))
 )
+
