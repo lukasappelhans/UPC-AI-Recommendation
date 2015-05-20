@@ -1002,6 +1002,12 @@
 	(export ?ALL)
 )
 
+;;; Module for student data collection
+(defmodule UserQuestions
+	(import MAIN ?ALL)
+	(export ?ALL)
+)
+
 (defmodule StudentPreferences
 	(import MAIN ?ALL)
 	(import StudentData deftemplate ?ALL)
@@ -1113,17 +1119,17 @@
 ;;; TODO : do we need this function ? If yes, uncomment
 ;;; Function that returns the element with the most points
 (deffunction maxPoints ($?list)
-	(bind ?max -1)
+	(bind ?max-1)
 	(bind ?element nil)
-	;(progn$ (?curr-rec $?list)
-	;	(bind ?curr-cont (send ?curr-rec get-course))
-	;	(bind ?curr-point (send ?curr-rec get-points))
-	;	(if (> ?curr-point ?max)
-	;		then 
-	;		(bind ?max ?curr-point)
-	;		(bind ?element ?curr-rec)
-	;	)
-	;)
+	(progn$ (?curr-rec $?list)
+		(bind ?curr-cont (send ?curr-rec get-course))
+		(bind ?curr-point (send ?curr-rec get-points))
+		(if (> ?curr-point ?max)
+			then 
+			(bind ?max ?curr-point)
+			(bind ?element ?curr-rec)
+		)
+	)
 	?element
 )
 
@@ -1134,6 +1140,16 @@
     (format t "%s " ?question)
 	(bind ?answer (read))
 	(while (not (lexemep ?answer)) do
+		(format t "%s " ?question)
+		(bind ?answer (read))
+    )
+	?answer
+)
+
+(deffunction integerQuestion (?question)
+    (format t "%s " ?question)
+	(bind ?answer (read))
+	(while (not (integerp ?answer)) do
 		(format t "%s " ?question)
 		(bind ?answer (read))
     )
@@ -1253,9 +1269,9 @@
 
 ;;; Modulo recopilacion
 
-(defrule UserQuestions::AskName 
-	(not (User))
+(defrule UserQuestions::AskMaxHours 
+	(not (Preferences))
 	=>
-	(bind ?name (generalQuestion "What's your name?"))
-	(assert (User (name ?name)))
+	(bind ?maxNumOfDevotedHours (integerQuestion "Please enter the maximum hours you can dedicate per week:"))
+	(assert (Preferences (maxNumOfDevotedHours ?maxNumOfDevotedHours)))
 )
