@@ -1,4 +1,4 @@
-; Tue May 19 21:25:03 CEST 2015
+; Wed May 20 16:02:30 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -7,31 +7,39 @@
 
 	(difficulty DIFFICULT)
 	(ECTS 7.5)
-	(mark -1)
 	(nameOfCourse "Physics")
 	(passed FALSE)
 	(project FALSE)
 	(quantityOfWork HIGH)
 	(semester 1)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class1] of  Course
 
 	(ECTS 7.5)
-	(mark -1)
 	(nameOfCourse "Programming 1")
 	(passed FALSE)
 	(semester 1)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
+
+([Practica2_Class10000] of  Student
+
+	(marks 9 7 10 5 6)
+	(nameOfStudent "Juan Martinez")
+	(passedCourses
+		[Practica2_Class7]
+		[Practica2_Class0]
+		[Practica2_Class2]
+		[Practica2_Class3]
+		[Practica2_Class4])
+	(passedCourseSemester 1 1 1 2 2)
+	(semesterOfRegistration 3))
 
 ([Practica2_Class10008] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Databases")
 	(passed FALSE)
 	(prerequisites
@@ -39,13 +47,11 @@
 		[Practica2_Class5])
 	(semester 3)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10009] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Operating Systems")
 	(passed FALSE)
 	(prerequisites
@@ -53,13 +59,11 @@
 		[Practica2_Class2])
 	(semester 3)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10010] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Data Structures and algorithmics")
 	(passed FALSE)
 	(prerequisites
@@ -67,13 +71,11 @@
 		[Practica2_Class5])
 	(semester 3)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10011] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Computer Interfacing")
 	(passed FALSE)
 	(prerequisites
@@ -81,43 +83,36 @@
 		[Practica2_Class2])
 	(semester 3)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10012] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Business and Economic Environment")
 	(passed FALSE)
 	(semester 4)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10013] of  Course
 
 	(corequisites [Practica2_Class10010])
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Introduction to Software Engineering")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10008])
 	(semester 4)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10014] of  Course
 
 	(corequisites [Practica2_Class10009])
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Computer Networks")
 	(passed FALSE)
 	(semester 4)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10015] of  Course
@@ -126,18 +121,15 @@
 		[Practica2_Class10013]
 		[Practica2_Class10008])
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Programming Projects")
 	(passed FALSE)
 	(semester 4)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10016] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Computer Architecture")
 	(passed FALSE)
 	(prerequisites
@@ -145,13 +137,11 @@
 		[Practica2_Class10009])
 	(semester 4)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10017] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Parallelism")
 	(passed FALSE)
 	(prerequisites
@@ -160,13 +150,11 @@
 		[Practica2_Class10009])
 	(semester 5)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10018] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Interaction and Interface Design")
 	(passed FALSE)
 	(prerequisites
@@ -174,7 +162,6 @@
 		[Practica2_Class3])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class10019] of  Specialty
@@ -200,7 +187,6 @@
 ([Practica2_Class10024] of  Course
 
 	(corequisites [Practica2_Class10015])
-	(mark -1)
 	(nameOfCourse "Algorithmics")
 	(passed FALSE)
 	(prerequisites
@@ -208,14 +194,12 @@
 		[Practica2_Class10038])
 	(semester 5)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPULSORY))
 
 ([Practica2_Class10025] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Graphics")
 	(passed FALSE)
 	(prerequisites
@@ -223,7 +207,6 @@
 		[Practica2_Class10015])
 	(semester 5)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPULSORY))
 
@@ -231,14 +214,12 @@
 
 	(corequisites [Practica2_Class10015])
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Artificial Intelligence")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10010])
 	(project FALSE)
 	(semester 5)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPULSORY))
 
@@ -246,26 +227,22 @@
 
 	(corequisites [Practica2_Class10015])
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Logic in Information Technology")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10010])
 	(semester 5)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPULSORY))
 
 ([Practica2_Class10028] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Programming Languages")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10015])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPULSORY))
 
@@ -273,26 +250,22 @@
 
 	(corequisites [Practica2_Class10015])
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Theory of Computation")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10010])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPULSORY))
 
 ([Practica2_Class10030] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Advanced Algorithmics")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10024])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPLEMENTARY))
 
@@ -300,13 +273,11 @@
 
 	(corequisites [Practica2_Class10015])
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Machine Learning")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10038])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPLEMENTARY))
 
@@ -314,7 +285,6 @@
 
 	(corequisites [Practica2_Class10015])
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Searching and Analysis of Massive Information")
 	(passed FALSE)
 	(prerequisites
@@ -322,27 +292,23 @@
 		[Practica2_Class10038])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPLEMENTARY))
 
 ([Practica2_Class10033] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Compilers")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10029])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPLEMENTARY))
 
 ([Practica2_Class10034] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Numerical Computation")
 	(passed FALSE)
 	(prerequisites
@@ -350,33 +316,28 @@
 		[Practica2_Class4])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPLEMENTARY))
 
 ([Practica2_Class10035] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Operations Research")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10038])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPLEMENTARY))
 
 ([Practica2_Class10036] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Distributed Intelligent Systems")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10026])
 	(semester 6)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPLEMENTARY))
 
@@ -386,7 +347,6 @@
 ([Practica2_Class10038] of  Course
 
 	(ECTS 6.0)
-	(mark -1)
 	(nameOfCourse "Probability and Statistics")
 	(passed FALSE)
 	(prerequisites
@@ -394,70 +354,57 @@
 		[Practica2_Class4])
 	(semester 3)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class2] of  Course
 
 	(ECTS 7.5)
-	(mark -1)
 	(nameOfCourse "Introduction to Computers")
 	(passed FALSE)
 	(semester 1)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class3] of  Course
 
 	(ECTS 7.5)
-	(mark -1)
 	(nameOfCourse "Mathematics 1")
 	(passed FALSE)
 	(semester 2)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class4] of  Course
 
 	(ECTS 7.5)
-	(mark -1)
 	(nameOfCourse "Mathematics 2")
 	(passed FALSE)
 	(semester 2)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class5] of  Course
 
 	(ECTS 7.5)
-	(mark -1)
 	(nameOfCourse "Programming 2")
 	(passed FALSE)
 	(semester 2)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class6] of  Course
 
 	(ECTS 7.5)
-	(mark -1)
 	(nameOfCourse "Computer Organization")
 	(passed FALSE)
 	(semester 2)
 	(semesterOpen BOTH)
-	(semesterPassed -1)
 	(type COMPULSORY))
 
 ([Practica2_Class7] of  Course
 
 	(ECTS 7.5)
-	(mark -1)
 	(nameOfCourse "Mathematical Foundations")
 	(passed FALSE)
 	(semester 1)
-	(semesterPassed -1)
 	(type COMPULSORY))

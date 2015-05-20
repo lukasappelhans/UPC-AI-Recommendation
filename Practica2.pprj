@@ -1,4 +1,4 @@
-; Tue May 19 21:25:03 CEST 2015
+; Wed May 20 16:02:30 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,15 +20,15 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[Practica2_ProjectKB_Class10092]
-		[Practica2_ProjectKB_Class10093]
-		[Practica2_ProjectKB_Class10094]
-		[Practica2_ProjectKB_Class10095]
-		[Practica2_ProjectKB_Class10096]
-		[Practica2_ProjectKB_Class10097]
-		[Practica2_ProjectKB_Class10098]
-		[Practica2_ProjectKB_Class10099]
-		[Practica2_ProjectKB_Class10100]))
+		[Practica2_ProjectKB_Class20123]
+		[Practica2_ProjectKB_Class20124]
+		[Practica2_ProjectKB_Class20125]
+		[Practica2_ProjectKB_Class20126]
+		[Practica2_ProjectKB_Class20127]
+		[Practica2_ProjectKB_Class20128]
+		[Practica2_ProjectKB_Class20129]
+		[Practica2_ProjectKB_Class20130]
+		[Practica2_ProjectKB_Class20131]))
 
 ([CLSES_TAB] of  Widget
 
@@ -72,9 +72,6 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
-([KB_025462_Class3] of  Map
-)
-
 ([KB_290076_Class0] of  String
 
 	(name "factory_class_name")
@@ -83,9 +80,9 @@
 ([KB_290076_Class1] of  Map
 
 	(entries
-		[Practica2_ProjectKB_Class10101]
-		[Practica2_ProjectKB_Class10102]
-		[Practica2_ProjectKB_Class10103]))
+		[Practica2_ProjectKB_Class20132]
+		[Practica2_ProjectKB_Class20133]
+		[Practica2_ProjectKB_Class20134]))
 
 ([KB_290076_Class100] of  Property_List
 )
@@ -179,6 +176,9 @@
 ([KB_290076_Class99] of  Property_List
 )
 
+([KB_960929_Class3] of  Map
+)
+
 ([LAYOUT_PROPERTIES] of  Property_List
 
 	(name "layout properties")
@@ -267,71 +267,33 @@
 ([Practica2_ProjectKB_Class10] of  Property_List
 )
 
-([Practica2_ProjectKB_Class10092] of  String
+([Practica2_ProjectKB_Class10072] of  Widget
 
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
+	(height 60)
+	(is_hidden FALSE)
+	(name "mark")
+	(property_list [Practica2_ProjectKB_Class10073])
+	(widget_class_name "edu.stanford.smi.protege.widget.IntegerFieldWidget")
+	(width 100)
+	(x 100)
+	(y 180))
 
-([Practica2_ProjectKB_Class10093] of  String
+([Practica2_ProjectKB_Class10073] of  Property_List
+)
 
-	(name "Specialty")
-	(string_value "nameOfSpecialty"))
+([Practica2_ProjectKB_Class10086] of  Widget
 
-([Practica2_ProjectKB_Class10094] of  String
+	(height 60)
+	(is_hidden FALSE)
+	(name "semesterPassed")
+	(property_list [Practica2_ProjectKB_Class10087])
+	(widget_class_name "edu.stanford.smi.protege.widget.IntegerFieldWidget")
+	(width 100)
+	(x 100)
+	(y 300))
 
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([Practica2_ProjectKB_Class10095] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([Practica2_ProjectKB_Class10096] of  String
-
-	(name "Course")
-	(string_value "nameOfCourse"))
-
-([Practica2_ProjectKB_Class10097] of  String
-
-	(name "Student")
-	(string_value "nameOfStudent"))
-
-([Practica2_ProjectKB_Class10098] of  String
-
-	(name "Competence")
-	(string_value "nameOfCompetence"))
-
-([Practica2_ProjectKB_Class10099] of  String
-
-	(name "Theme")
-	(string_value "nameOfTheme"))
-
-([Practica2_ProjectKB_Class10100] of  String
-
-	(name "CompetenceOfInterest")
-	(string_value "nameOfCompetence"))
-
-([Practica2_ProjectKB_Class10101] of  Map_Entry
-
-	(key "add_name_on_instance_form")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
-
-([Practica2_ProjectKB_Class10102] of  Map_Entry
-
-	(key "change_tracking_active")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
-
-([Practica2_ProjectKB_Class10103] of  Map_Entry
-
-	(key "suppress_instance_counting")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
+([Practica2_ProjectKB_Class10087] of  Property_List
+)
 
 ([Practica2_ProjectKB_Class107] of  String
 
@@ -384,6 +346,156 @@
 
 ([Practica2_ProjectKB_Class20] of  Property_List
 )
+
+([Practica2_ProjectKB_Class20105] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "Practica2_Class10001")
+	(property_list [Practica2_ProjectKB_Class20106])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 300))
+
+([Practica2_ProjectKB_Class20106] of  Property_List
+)
+
+([Practica2_ProjectKB_Class20107] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "marks")
+	(property_list [Practica2_ProjectKB_Class20108])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 300))
+
+([Practica2_ProjectKB_Class20108] of  Property_List
+)
+
+([Practica2_ProjectKB_Class20109] of  Widget
+
+	(height 120)
+	(is_hidden FALSE)
+	(name "marks")
+	(property_list [Practica2_ProjectKB_Class20110])
+	(widget_class_name "edu.stanford.smi.protege.widget.StringListWidget")
+	(width 200)
+	(x 0)
+	(y 300))
+
+([Practica2_ProjectKB_Class20110] of  Property_List
+)
+
+([Practica2_ProjectKB_Class20113] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "passedCourseSemester")
+	(property_list [Practica2_ProjectKB_Class20114])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 420))
+
+([Practica2_ProjectKB_Class20114] of  Property_List
+)
+
+([Practica2_ProjectKB_Class20115] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "passedCourseSemester")
+	(property_list [Practica2_ProjectKB_Class20116])
+	(widget_class_name "edu.stanford.smi.protege.widget.IntegerFieldWidget")
+	(width 100)
+	(x 0)
+	(y 420))
+
+([Practica2_ProjectKB_Class20116] of  Property_List
+)
+
+([Practica2_ProjectKB_Class20119] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "semesterOfRegistration")
+	(property_list [Practica2_ProjectKB_Class20120])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 540))
+
+([Practica2_ProjectKB_Class20120] of  Property_List
+)
+
+([Practica2_ProjectKB_Class20123] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([Practica2_ProjectKB_Class20124] of  String
+
+	(name "Specialty")
+	(string_value "nameOfSpecialty"))
+
+([Practica2_ProjectKB_Class20125] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([Practica2_ProjectKB_Class20126] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([Practica2_ProjectKB_Class20127] of  String
+
+	(name "Course")
+	(string_value "nameOfCourse"))
+
+([Practica2_ProjectKB_Class20128] of  String
+
+	(name "Student")
+	(string_value "nameOfStudent"))
+
+([Practica2_ProjectKB_Class20129] of  String
+
+	(name "Theme")
+	(string_value "nameOfTheme"))
+
+([Practica2_ProjectKB_Class20130] of  String
+
+	(name "Competence")
+	(string_value "nameOfCompetence"))
+
+([Practica2_ProjectKB_Class20131] of  String
+
+	(name "CompetenceOfInterest")
+	(string_value "nameOfCompetence"))
+
+([Practica2_ProjectKB_Class20132] of  Map_Entry
+
+	(key "add_name_on_instance_form")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([Practica2_ProjectKB_Class20133] of  Map_Entry
+
+	(key "change_tracking_active")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([Practica2_ProjectKB_Class20134] of  Map_Entry
+
+	(key "suppress_instance_counting")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
 
 ([Practica2_ProjectKB_Class21] of  Widget
 
@@ -693,8 +805,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_FACET_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
+		[STANDARD_FACET_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
