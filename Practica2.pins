@@ -1,4 +1,4 @@
-; Wed May 20 21:50:22 CEST 2015
+; Thu May 21 15:55:15 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -340,9 +340,6 @@
 	(semesterOpen BOTH)
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPLEMENTARY))
-
-([Practica2_Class10037] of  Specialty
-)
 
 ([Practica2_Class10038] of  Course
 

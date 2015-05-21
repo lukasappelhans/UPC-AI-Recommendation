@@ -1,4 +1,4 @@
-; Wed May 20 21:50:22 CEST 2015
+; Thu May 21 15:55:15 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -38,20 +38,20 @@
 	(single-slot semesterOfRegistration
 ;+		(comment "The semester for which the recommendation will be done.")
 		(type INTEGER)
-		(range 1 %3FVARIABLE)
+		(range 1 20)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nameOfTheme
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot nameOfSpecialty
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot maxNumOfLabHours
 ;+		(comment "The maximum number of Laboratory hours that a student can accept for this semester.")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nameOfSpecialty
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot percentageOfPassedPreviousSemester
@@ -65,16 +65,16 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot hours
+		(type SYMBOL)
+		(allowed-values MORNING AFTERNOON BOTH)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot mark
 ;+		(comment "The final mark of a student for this Passed Course.\nIf the course is unpassed the default value is -1.")
 		(type INTEGER)
 		(range -1 10)
 		(default -1)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot hours
-		(type SYMBOL)
-		(allowed-values MORNING AFTERNOON BOTH)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot semesterOpen
@@ -89,24 +89,24 @@
 		(type INSTANCE)
 ;+		(allowed-classes)
 		(create-accessor read-write))
-	(multislot courses
-;+		(comment "Courses that offer this competence.")
-		(type INSTANCE)
-;+		(allowed-classes)
-		(create-accessor read-write))
 	(single-slot ECTS
 ;+		(comment "The ECTS credits of a course.")
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Practica2_Class10001
-		(type STRING)
-;+		(cardinality 0 1)
+	(multislot courses
+;+		(comment "Courses that offer this competence.")
+		(type INSTANCE)
+;+		(allowed-classes)
 		(create-accessor read-write))
 	(multislot specialtiesOfInterest
 ;+		(comment "The Specialties that a student is interested in completing,")
 		(type INSTANCE)
 ;+		(allowed-classes Specialty)
+		(create-accessor read-write))
+	(single-slot Practica2_Class10001
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot preferredHours
 ;+		(comment "The type of hours that a student prefers.")
@@ -145,6 +145,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes)
 		(create-accessor read-write))
+	(single-slot level
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot nameOfCompetence
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -153,15 +157,15 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot maxNumOfDevotedHours
-;+		(comment "The maximum number of hours of devotion that a student can accept for this semester.")
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot course
 ;+		(comment "Competence that a course offers.")
 		(type INSTANCE)
 ;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot maxNumOfDevotedHours
+;+		(comment "The maximum number of hours of devotion that a student can accept for this semester.")
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot difficulty
@@ -209,13 +213,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes SpecializedTheme)
 		(create-accessor read-write))
-	(multislot specializedThemesIncluded
-;+		(comment "Specialized Themes included in a specialty,")
+	(multislot specializedThemes
+;+		(comment "Specialized Themes to which a course belongs.")
 		(type INSTANCE)
 ;+		(allowed-classes SpecializedTheme)
 		(create-accessor read-write))
-	(multislot specializedThemes
-;+		(comment "Specialized Themes to which a course belongs.")
+	(multislot specializedThemesIncluded
+;+		(comment "Specialized Themes included in a specialty,")
 		(type INSTANCE)
 ;+		(allowed-classes SpecializedTheme)
 		(create-accessor read-write))
@@ -245,13 +249,13 @@
 		(allowed-values HIGH MEDIUM NONE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot nameOfStudent
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot creditsAlreadyObtained
 ;+		(comment "Credits already obtained by a student for this competence.")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nameOfStudent
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot specializedThemesContained
@@ -268,15 +272,15 @@
 (defclass Student
 	(is-a USER)
 	(role concrete)
-	(single-slot maxNumOfCourses
-;+		(comment "The maximum number of courses that a student wants to be enrolled in for this semester.")
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot specialtiesOfInterest
 ;+		(comment "The Specialties that a student is interested in completing,")
 		(type INSTANCE)
 ;+		(allowed-classes Specialty)
+		(create-accessor read-write))
+	(single-slot maxNumOfCourses
+;+		(comment "The maximum number of courses that a student wants to be enrolled in for this semester.")
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot primarySpecialty
 ;+		(comment "The specialty that a student is most interested in completing.")
@@ -307,7 +311,7 @@
 	(single-slot semesterOfRegistration
 ;+		(comment "The semester for which the recommendation will be done.")
 		(type INTEGER)
-		(range 1 %3FVARIABLE)
+		(range 1 20)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot passedCourseSemester
@@ -315,15 +319,15 @@
 		(type INTEGER)
 		(range 1 8)
 		(create-accessor read-write))
-	(multislot marks
-;+		(comment "The marks of a student. Entered in the same order as the Passed Courses.")
-		(type INTEGER)
-		(range 0 10)
-		(create-accessor read-write))
 	(single-slot maxNumOfLabHours
 ;+		(comment "The maximum number of Laboratory hours that a student can accept for this semester.")
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot marks
+;+		(comment "The marks of a student. Entered in the same order as the Passed Courses.")
+		(type INTEGER)
+		(range 0 10)
 		(create-accessor read-write))
 	(single-slot interestToCompletePrimarySpecialty
 ;+		(comment "The degree of the student's interest in completing their primarySpecialty during this semester.")
@@ -363,10 +367,6 @@
 		(default FALSE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot nameOfCourse
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot teachingLanguage
 ;+		(comment "The language(s) in which a course is taught.")
 		(type SYMBOL)
@@ -374,23 +374,27 @@
 		(default CATALAN)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot prerequisites
-;+		(comment "The prerequisites of a course. Can be Passed or Unpassed Courses.")
-		(type INSTANCE)
-;+		(allowed-classes)
+	(single-slot nameOfCourse
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot specializedThemes
 ;+		(comment "Specialized Themes to which a course belongs.")
 		(type INSTANCE)
 ;+		(allowed-classes SpecializedTheme)
 		(create-accessor read-write))
-	(single-slot quantityOfWork
-		(type SYMBOL)
-		(allowed-values HIGH MEDIUM LOW)
-;+		(cardinality 0 1)
+	(multislot prerequisites
+;+		(comment "The prerequisites of a course. Can be Passed or Unpassed Courses.")
+		(type INSTANCE)
+;+		(allowed-classes)
 		(create-accessor read-write))
 	(single-slot problemHours
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot quantityOfWork
+		(type SYMBOL)
+		(allowed-values HIGH MEDIUM LOW)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot project
@@ -399,16 +403,16 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot percentageOfPassedPreviousSemester
-;+		(comment "The percentage of students that passed the course for the previous semester.")
-		(type FLOAT)
-		(range 0.0 100.0)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot difficulty
 ;+		(comment "The degree of difficulty of a course.")
 		(type SYMBOL)
 		(allowed-values EASY MEDIUM DIFFICULT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot percentageOfPassedPreviousSemester
+;+		(comment "The percentage of students that passed the course for the previous semester.")
+		(type FLOAT)
+		(range 0.0 100.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot theoryHours
@@ -420,17 +424,17 @@
 		(allowed-values MORNING AFTERNOON BOTH)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot specialty
+;+		(comment "The specialty to which a course belongs.")
+		(type INSTANCE)
+;+		(allowed-classes Specialty)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot semesterOpen
 ;+		(comment "The semester in which the course is available. (Winter, spring or Both)")
 		(type SYMBOL)
 		(allowed-values SPRING WINTER BOTH)
 		(default BOTH)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot specialty
-;+		(comment "The specialty to which a course belongs.")
-		(type INSTANCE)
-;+		(allowed-classes Specialty)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot type
@@ -540,6 +544,10 @@
 ;+		(allowed-classes)
 		(create-accessor read-write)))
 
-(defclass CompetenceOfCourse "A competence that a course includes and its level (Credits slot)"
+(defclass CompetenceOfCourse "A competence that a course includes and its level."
 	(is-a Competence)
-	(role concrete))
+	(role concrete)
+	(single-slot level
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))

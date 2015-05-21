@@ -1,0 +1,4 @@
+digraph "Practica2" {
+
+"Student" [shape=box, label="Student", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+}

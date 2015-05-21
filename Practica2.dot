@@ -1,0 +1,11 @@
+digraph Practica2 {
+	graph [bb="0,0,56,36"];
+	node [label="\N"];
+	Student	 [color="0.0,0.0,0.0",
+		fontcolor="0.0,0.0,0.0",
+		height=0.5,
+		label=Student,
+		pos="28,18",
+		shape=box,
+		width=0.79167];
+}

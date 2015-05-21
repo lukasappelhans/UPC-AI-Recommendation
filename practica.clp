@@ -1,8 +1,7 @@
 ;;; ************************************************************************
 ;;; Ontology 
 ;;; ************************************************************************
-
-; Wed May 20 21:50:22 CEST 2015
+; Thu May 21 12:34:59 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -42,20 +41,20 @@
 	(single-slot semesterOfRegistration
 ;+		(comment "The semester for which the recommendation will be done.")
 		(type INTEGER)
-		(range 1 %3FVARIABLE)
+		(range 1 20)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nameOfTheme
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot nameOfSpecialty
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot maxNumOfLabHours
 ;+		(comment "The maximum number of Laboratory hours that a student can accept for this semester.")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nameOfSpecialty
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot percentageOfPassedPreviousSemester
@@ -69,16 +68,16 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot hours
+		(type SYMBOL)
+		(allowed-values MORNING AFTERNOON BOTH)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot mark
 ;+		(comment "The final mark of a student for this Passed Course.\nIf the course is unpassed the default value is -1.")
 		(type INTEGER)
 		(range -1 10)
 		(default -1)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot hours
-		(type SYMBOL)
-		(allowed-values MORNING AFTERNOON BOTH)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot semesterOpen
@@ -93,24 +92,24 @@
 		(type INSTANCE)
 ;+		(allowed-classes)
 		(create-accessor read-write))
-	(multislot courses
-;+		(comment "Courses that offer this competence.")
-		(type INSTANCE)
-;+		(allowed-classes)
-		(create-accessor read-write))
 	(single-slot ECTS
 ;+		(comment "The ECTS credits of a course.")
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Practica2_Class10001
-		(type STRING)
-;+		(cardinality 0 1)
+	(multislot courses
+;+		(comment "Courses that offer this competence.")
+		(type INSTANCE)
+;+		(allowed-classes)
 		(create-accessor read-write))
 	(multislot specialtiesOfInterest
 ;+		(comment "The Specialties that a student is interested in completing,")
 		(type INSTANCE)
 ;+		(allowed-classes Specialty)
+		(create-accessor read-write))
+	(single-slot Practica2_Class10001
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot preferredHours
 ;+		(comment "The type of hours that a student prefers.")
@@ -149,6 +148,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes)
 		(create-accessor read-write))
+	(single-slot level
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot nameOfCompetence
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -157,15 +160,15 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot maxNumOfDevotedHours
-;+		(comment "The maximum number of hours of devotion that a student can accept for this semester.")
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot course
 ;+		(comment "Competence that a course offers.")
 		(type INSTANCE)
 ;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot maxNumOfDevotedHours
+;+		(comment "The maximum number of hours of devotion that a student can accept for this semester.")
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot difficulty
@@ -213,13 +216,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes SpecializedTheme)
 		(create-accessor read-write))
-	(multislot specializedThemesIncluded
-;+		(comment "Specialized Themes included in a specialty,")
+	(multislot specializedThemes
+;+		(comment "Specialized Themes to which a course belongs.")
 		(type INSTANCE)
 ;+		(allowed-classes SpecializedTheme)
 		(create-accessor read-write))
-	(multislot specializedThemes
-;+		(comment "Specialized Themes to which a course belongs.")
+	(multislot specializedThemesIncluded
+;+		(comment "Specialized Themes included in a specialty,")
 		(type INSTANCE)
 ;+		(allowed-classes SpecializedTheme)
 		(create-accessor read-write))
@@ -249,13 +252,13 @@
 		(allowed-values HIGH MEDIUM NONE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot nameOfStudent
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot creditsAlreadyObtained
 ;+		(comment "Credits already obtained by a student for this competence.")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nameOfStudent
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot specializedThemesContained
@@ -272,15 +275,15 @@
 (defclass Student
 	(is-a USER)
 	(role concrete)
-	(single-slot maxNumOfCourses
-;+		(comment "The maximum number of courses that a student wants to be enrolled in for this semester.")
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot specialtiesOfInterest
 ;+		(comment "The Specialties that a student is interested in completing,")
 		(type INSTANCE)
 ;+		(allowed-classes Specialty)
+		(create-accessor read-write))
+	(single-slot maxNumOfCourses
+;+		(comment "The maximum number of courses that a student wants to be enrolled in for this semester.")
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot primarySpecialty
 ;+		(comment "The specialty that a student is most interested in completing.")
@@ -311,7 +314,7 @@
 	(single-slot semesterOfRegistration
 ;+		(comment "The semester for which the recommendation will be done.")
 		(type INTEGER)
-		(range 1 %3FVARIABLE)
+		(range 1 20)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot passedCourseSemester
@@ -319,15 +322,15 @@
 		(type INTEGER)
 		(range 1 8)
 		(create-accessor read-write))
-	(multislot marks
-;+		(comment "The marks of a student. Entered in the same order as the Passed Courses.")
-		(type INTEGER)
-		(range 0 10)
-		(create-accessor read-write))
 	(single-slot maxNumOfLabHours
 ;+		(comment "The maximum number of Laboratory hours that a student can accept for this semester.")
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot marks
+;+		(comment "The marks of a student. Entered in the same order as the Passed Courses.")
+		(type INTEGER)
+		(range 0 10)
 		(create-accessor read-write))
 	(single-slot interestToCompletePrimarySpecialty
 ;+		(comment "The degree of the student's interest in completing their primarySpecialty during this semester.")
@@ -367,10 +370,6 @@
 		(default FALSE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot nameOfCourse
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot teachingLanguage
 ;+		(comment "The language(s) in which a course is taught.")
 		(type SYMBOL)
@@ -378,23 +377,27 @@
 		(default CATALAN)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot prerequisites
-;+		(comment "The prerequisites of a course. Can be Passed or Unpassed Courses.")
-		(type INSTANCE)
-;+		(allowed-classes)
+	(single-slot nameOfCourse
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot specializedThemes
 ;+		(comment "Specialized Themes to which a course belongs.")
 		(type INSTANCE)
 ;+		(allowed-classes SpecializedTheme)
 		(create-accessor read-write))
-	(single-slot quantityOfWork
-		(type SYMBOL)
-		(allowed-values HIGH MEDIUM LOW)
-;+		(cardinality 0 1)
+	(multislot prerequisites
+;+		(comment "The prerequisites of a course. Can be Passed or Unpassed Courses.")
+		(type INSTANCE)
+;+		(allowed-classes)
 		(create-accessor read-write))
 	(single-slot problemHours
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot quantityOfWork
+		(type SYMBOL)
+		(allowed-values HIGH MEDIUM LOW)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot project
@@ -403,16 +406,16 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot percentageOfPassedPreviousSemester
-;+		(comment "The percentage of students that passed the course for the previous semester.")
-		(type FLOAT)
-		(range 0.0 100.0)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot difficulty
 ;+		(comment "The degree of difficulty of a course.")
 		(type SYMBOL)
 		(allowed-values EASY MEDIUM DIFFICULT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot percentageOfPassedPreviousSemester
+;+		(comment "The percentage of students that passed the course for the previous semester.")
+		(type FLOAT)
+		(range 0.0 100.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot theoryHours
@@ -424,17 +427,17 @@
 		(allowed-values MORNING AFTERNOON BOTH)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot specialty
+;+		(comment "The specialty to which a course belongs.")
+		(type INSTANCE)
+;+		(allowed-classes Specialty)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot semesterOpen
 ;+		(comment "The semester in which the course is available. (Winter, spring or Both)")
 		(type SYMBOL)
 		(allowed-values SPRING WINTER BOTH)
 		(default BOTH)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot specialty
-;+		(comment "The specialty to which a course belongs.")
-		(type INSTANCE)
-;+		(allowed-classes Specialty)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot type
@@ -544,15 +547,21 @@
 ;+		(allowed-classes)
 		(create-accessor read-write)))
 
-(defclass CompetenceOfCourse "A competence that a course includes and its level (Credits slot)"
+(defclass CompetenceOfCourse "A competence that a course includes and its level."
 	(is-a Competence)
-	(role concrete))
+	(role concrete)
+	(single-slot level
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
 
 ;;; ************************************************************************
 ;;; Instances 
 ;;; ************************************************************************
 
-; Wed May 20 21:50:22 CEST 2015
+(definstances instances
+
+; Thu May 21 12:43:10 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -895,9 +904,6 @@
 	(specialty [Practica2_Class10019])
 	(type SPECIALIZATION_COMPLEMENTARY))
 
-([Practica2_Class10037] of  Specialty
-)
-
 ([Practica2_Class10038] of  Course
 
 	(ECTS 6.0)
@@ -963,7 +969,7 @@
 	(semester 1)
 	(type COMPULSORY))
 
-
+)
 
 ;;; ************************************************************************
 ;;; End of code generated with Protege 
@@ -1004,11 +1010,6 @@
 	(export ?ALL)
 )
 
-;;; Module for student data collection
-(defmodule UserQuestions
-	(import MAIN ?ALL)
-	(export ?ALL)
-)
 
 (defmodule StudentPreferences
 	(import MAIN ?ALL)
@@ -1017,7 +1018,7 @@
 )
 
 ;;; Module for processing of courses adequate for the student
-(defmodule processed
+(defmodule processing
 	(import MAIN ?ALL)
 	(import StudentData deftemplate ?ALL)
 	(import StudentPreferences deftemplate ?ALL)
@@ -1159,26 +1160,18 @@
 	?answer
 )
 
-(deffunction optionQuestion (?question $?allowed-values)
-   (format t "%s "?question)
-   (progn$ (?curr-value $?allowed-values)
-		(format t "[%s]" ?curr-value)
+
+;;; Function to ask a question that accepts a unique numerical answer
+(deffunction MAIN::NumericQuestion (?question ?rangini ?rangfi)
+	(format t "%s [%d, %d] " ?question ?rangini ?rangfi)
+	(bind ?answer (read))
+	(while (not(and(>= ?answer ?rangini)(<= ?answer ?rangfi))) do
+		(format t "%s [%d, %d] " ?question ?rangini ?rangfi)
+		(bind ?answer (read))
 	)
-   (printout t ": ")
-   (bind ?answer (read))
-   (if (lexemep ?answer) 
-       then (bind ?answer (lowcase ?answer)))
-   (while (not (member ?answer ?allowed-values)) do
-      (format t "%s "?question)
-	  (progn$ (?curr-value $?allowed-values)
-		(format t "[%s]" ?curr-value)
-	  )
-	  (printout t ": ")
-      (bind ?answer (read))
-      (if (lexemep ?answer) 
-          then (bind ?answer (lowcase ?answer))))
-   ?answer
+	?answer
 )
+
 
 
 ;;; Function to ask a question with a specified series of accepted answers
@@ -1203,17 +1196,6 @@
    ?answer
 )
 
-
-;;; Function to ask a question that accepts a unique numerical answer
-(deffunction MAIN::NumericQuestion (?question ?rangini ?rangfi)
-	(format t "%s [%d, %d] " ?question ?rangini ?rangfi)
-	(bind ?answer (read))
-	(while (not(and(>= ?answer ?rangini)(<= ?answer ?rangfi))) do
-		(format t "%s [%d, %d] " ?question ?rangini ?rangfi)
-		(bind ?answer (read))
-	)
-	?answer
-)
 
 
 ;;; TODO: Add functions for other types of questions if needed
@@ -1257,38 +1239,89 @@
 
 
 
+
 ;;; ************************************************************************
 ;;; Rule and Fact Declarations 
 ;;; ************************************************************************
 
 
+
 (defrule MAIN::initialRule "First rule"
 	(declare (salience 10))
 	=>
-	(printout t "*******************************************" crlf)
-	(printout t "Welcome to our course recommendation system. Please, answer the following questions:" crlf)
-	(printout t "*******************************************" crlf)
+	(printout t "*********************************************" crlf)
+	(printout t "Welcome to our course recommendation system." crlf) 
+	(printout t "*********************************************" crlf)
 	(printout t crlf)
-	(focus StudentQuestions)
+	(printout t "Please, answer the following questions:" crlf)
+	(printout t crlf)
+	(focus StudentData)
 )
 
 
 ;;; Student Data collection Module
 
-
+;;; TODO: first middle last name
 (defrule StudentData::AskName "ask the student for their full name"
 	(not (Student))
 	=>
 	(bind ?name (generalQuestion "What is your first and last name?"))
 	(assert (Student (nameOfStudent ?name)))
+	(focus StudentPreferences)
+)
+
+;;; A series of preference questions
+
+(defrule StudentPreferences::AskPreferences1 
+	(not (Preferences))
+	=>
+	(bind ?maxNumOfDevotedHours (integerQuestion "Please enter the maximum hours you can dedicate per week:"))
+
+	(assert (Preferences (maxNumOfDevotedHours ?maxNumOfDevotedHours)))
 )
 
 
+(defrule StudentPreferences::AskPreferences2
+	?u <- (Preferences (maxNumOfLabHours ?maxNumOfLabHours))
+	(not(pref2))
+	=>
+	(bind ?mNOLH (integerQuestion "Please enter the maximum hours you can dedicate to labs per week:"))
+	(modify ?u (maxNumOfLabHours ?mNOLH))
+	(assert (pref2))
+)
+
+(defrule StudentPreferences::AskPreferences3
+	?u <- (Preferences (maxNumOfCourses ?maxNumOfCourses))
+	(not (pref3))
+	=>
+	(bind ?mNOC (integerQuestion "Please enter the maximum amount of courses:"))
+	(modify ?u (maxNumOfCourses ?mNOC))
+	(assert (pref3))
+)
+
+(defrule StudentPreferences::AskPreferences4
+	?u <- (Preferences (preferredHours ?preferredHours))
+	(not (pref4))
+	=>
+	(bind ?pH (QuestionWithOptions "Please enter your preferred hours:" morning afternoon any))
+	(modify ?u (preferredHours ?pH))
+	(assert (pref4))
+	(focus processing)
+)
 
 
+;;; Processing Module
 
 
-
+(defrule processing::AddAllCourses "All the courses are added and they are processed afterwards"
+	(not (AddedAllCourses))
+	=>
+	(bind $?list (find-all-instances ((?inst Course)) TRUE))
+	(progn$ (?curr-con ?list)
+		(make-instance (gensym) of Recommendation (Course ?curr-con))
+	)	
+	(assert (AddedAllCourses))
+)
 
 
 
@@ -1313,16 +1346,4 @@
 
 
 
-(defrule UserQuestions::AskUser 
-	(not (Preferences))
-	=>
-	(bind ?maxNumOfDevotedHours (integerQuestion "Please enter the maximum hours you can dedicate per week:"))
-	(bind ?maxNumOfLabHours (integerQuestion "Please enter the maximum hours you can dedicate to labs per week:"))
-	(bind ?maxNumOfCourses (integerQuestion "Please enter the maximum amount of courses:"))
-	(bind ?preferredHours (optionQuestion "Please enter your preferred hours:" MORNING AFTERNOON ANY))
-	(assert (Preferences (maxNumOfDevotedHours ?maxNumOfDevotedHours)))
-	(assert (Preferences (maxNumOfLabHours ?maxNumOfLabHours)))
-	(assert (Preferences (maxNumOfCourses ?maxNumOfCourses)))
-	(assert (Preferences (preferredHours ?preferredHours)))
-)
 
