@@ -1,4 +1,4 @@
-; Wed May 20 16:02:30 CEST 2015
+; Wed May 20 21:50:22 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -20,15 +20,15 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[Practica2_ProjectKB_Class20123]
-		[Practica2_ProjectKB_Class20124]
-		[Practica2_ProjectKB_Class20125]
-		[Practica2_ProjectKB_Class20126]
-		[Practica2_ProjectKB_Class20127]
-		[Practica2_ProjectKB_Class20128]
-		[Practica2_ProjectKB_Class20129]
-		[Practica2_ProjectKB_Class20130]
-		[Practica2_ProjectKB_Class20131]))
+		[Practica2_ProjectKB_Class20135]
+		[Practica2_ProjectKB_Class20136]
+		[Practica2_ProjectKB_Class20137]
+		[Practica2_ProjectKB_Class20138]
+		[Practica2_ProjectKB_Class20139]
+		[Practica2_ProjectKB_Class20140]
+		[Practica2_ProjectKB_Class20141]
+		[Practica2_ProjectKB_Class20142]
+		[Practica2_ProjectKB_Class20143]))
 
 ([CLSES_TAB] of  Widget
 
@@ -80,9 +80,9 @@
 ([KB_290076_Class1] of  Map
 
 	(entries
-		[Practica2_ProjectKB_Class20132]
-		[Practica2_ProjectKB_Class20133]
-		[Practica2_ProjectKB_Class20134]))
+		[Practica2_ProjectKB_Class20144]
+		[Practica2_ProjectKB_Class20145]
+		[Practica2_ProjectKB_Class20146]))
 
 ([KB_290076_Class100] of  Property_List
 )
@@ -431,66 +431,66 @@
 ([Practica2_ProjectKB_Class20120] of  Property_List
 )
 
-([Practica2_ProjectKB_Class20123] of  String
+([Practica2_ProjectKB_Class20135] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([Practica2_ProjectKB_Class20124] of  String
+([Practica2_ProjectKB_Class20136] of  String
 
 	(name "Specialty")
 	(string_value "nameOfSpecialty"))
 
-([Practica2_ProjectKB_Class20125] of  String
+([Practica2_ProjectKB_Class20137] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([Practica2_ProjectKB_Class20126] of  String
+([Practica2_ProjectKB_Class20138] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([Practica2_ProjectKB_Class20127] of  String
+([Practica2_ProjectKB_Class20139] of  String
 
 	(name "Course")
 	(string_value "nameOfCourse"))
 
-([Practica2_ProjectKB_Class20128] of  String
+([Practica2_ProjectKB_Class20140] of  String
 
 	(name "Student")
 	(string_value "nameOfStudent"))
 
-([Practica2_ProjectKB_Class20129] of  String
+([Practica2_ProjectKB_Class20141] of  String
 
 	(name "Theme")
 	(string_value "nameOfTheme"))
 
-([Practica2_ProjectKB_Class20130] of  String
+([Practica2_ProjectKB_Class20142] of  String
 
 	(name "Competence")
 	(string_value "nameOfCompetence"))
 
-([Practica2_ProjectKB_Class20131] of  String
+([Practica2_ProjectKB_Class20143] of  String
 
 	(name "CompetenceOfInterest")
 	(string_value "nameOfCompetence"))
 
-([Practica2_ProjectKB_Class20132] of  Map_Entry
+([Practica2_ProjectKB_Class20144] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([Practica2_ProjectKB_Class20133] of  Map_Entry
+([Practica2_ProjectKB_Class20145] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([Practica2_ProjectKB_Class20134] of  Map_Entry
+([Practica2_ProjectKB_Class20146] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")

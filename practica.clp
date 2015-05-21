@@ -2,7 +2,7 @@
 ;;; Ontology 
 ;;; ************************************************************************
 
-; Wed May 20 16:02:30 CEST 2015
+; Wed May 20 21:50:22 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -548,12 +548,11 @@
 	(is-a Competence)
 	(role concrete))
 
-
 ;;; ************************************************************************
 ;;; Instances 
 ;;; ************************************************************************
 
-; Wed May 20 16:02:30 CEST 2015
+; Wed May 20 21:50:22 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -965,9 +964,12 @@
 	(type COMPULSORY))
 
 
+
 ;;; ************************************************************************
 ;;; End of code generated with Protege 
 ;;; ************************************************************************
+
+
 
 
 ;;; ************************************************************************
@@ -980,7 +982,7 @@
 (defclass Recommendation 
 	(is-a USER)
 	(role concrete)
-	(slot course
+	(slot Course
 		(type INSTANCE)
 		(create-accessor read-write))
 	(slot points
@@ -1056,7 +1058,7 @@
 )
 
 ;;; Print recommendations
-(defmessage-handler MAIN::Recomendation print ()
+(defmessage-handler MAIN::Recommendation print ()
 	(printout t "-----------------------------------" crlf)
 	(printout t (send ?self:Course print))
 	(printout t crlf)
@@ -1222,6 +1224,34 @@
 ;;; ************************************************************************
 
 
+(defrule MAIN::initialRule "First rule"
+	(declare (salience 10))
+	=>
+	(printout t "*******************************************" crlf)
+	(printout t "Welcome to our course recommendation system. Please, answer the following questions:" crlf)
+	(printout t "*******************************************" crlf)
+	(printout t crlf)
+	(focus StudentQuestions)
+)
+
+
+;;; Student Data collection Module
+
+
+(defrule StudentData::AskName "ask the student for their full name"
+	(not (Student))
+	=>
+	(bind ?name (generalQuestion "What is your first and last name?"))
+	(assert (Student (nameOfStudent ?name)))
+)
+
+
+
+
+
+
+
+
 
 
 (defrule CreateRecommendationsList 
@@ -1243,19 +1273,5 @@
 	(assert (OrderedRecommendationList (recommendations $?result)))
 )
 
-(defrule MAIN::initialRule "First rule"
-	(declare (salience 10))
-	=>
-	(printout t "Welcome to our course recommendation system." crlf)
-	(printout t crlf)
-	(focus UserQuestions)
-)
 
-;;; Modulo recopilacion
 
-(defrule UserQuestions::AskName 
-	(not (User))
-	=>
-	(bind ?name (generalQuestion "What's your name?"))
-	(assert (User (name ?name)))
-)
