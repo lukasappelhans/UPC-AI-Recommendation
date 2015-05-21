@@ -1064,6 +1064,7 @@
 )
 
 ;;; Print recommendations
+<<<<<<< HEAD
 (defmessage-handler MAIN::Recommendation print ()
 	(printout t "-----------------------------------" crlf)
 	(printout t (send ?self:Course print))
@@ -1072,7 +1073,16 @@
 	(printout t crlf)
 	(printout t "-----------------------------------" crlf)
 )
-
+=======
+;;;(defmessage-handler MAIN::Recomendation print ()
+;;;	(printout t "-----------------------------------" crlf)
+;;;	(printout t (send ?self:Course print))
+;;;	(printout t crlf)
+;;;	(format t "Recommendation level: %d %n" ?self:points)
+;;;	(printout t crlf)
+;;;	(printout t "-----------------------------------" crlf)
+;;;)
+>>>>>>> 75cdd532e7594c4755d96814bfd69d475991125c
 
 
 ;;; ************************************************************************
@@ -1313,6 +1323,8 @@
 
 
 
+<<<<<<< HEAD
+=======
 (defrule UserQuestions::AskUser 
 	(not (Preferences))
 	=>
@@ -1326,3 +1338,4 @@
 	(assert (Preferences (preferredHours ?preferredHours)))
 )
 
+>>>>>>> 75cdd532e7594c4755d96814bfd69d475991125c
