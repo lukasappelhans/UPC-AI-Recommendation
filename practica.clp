@@ -1,7 +1,7 @@
 ;;; ************************************************************************
 ;;; Ontology 
 ;;; ************************************************************************
-; Thu May 21 12:34:59 CEST 2015
+; Fri May 22 02:09:28 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -70,7 +70,8 @@
 		(create-accessor read-write))
 	(single-slot hours
 		(type SYMBOL)
-		(allowed-values MORNING AFTERNOON BOTH)
+		(allowed-values morning afternoon both)
+		(default morning)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot mark
@@ -424,7 +425,8 @@
 		(create-accessor read-write))
 	(single-slot hours
 		(type SYMBOL)
-		(allowed-values MORNING AFTERNOON BOTH)
+		(allowed-values morning afternoon both)
+		(default morning)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot specialty
@@ -561,7 +563,7 @@
 
 (definstances instances
 
-; Thu May 21 12:43:10 CEST 2015
+; Fri May 22 02:09:28 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -576,6 +578,7 @@
 	(quantityOfWork HIGH)
 	(semester 1)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class1] of  Course
@@ -585,12 +588,13 @@
 	(passed FALSE)
 	(semester 1)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10000] of  Student
 
 	(marks 9 7 10 5 6)
-	(nameOfStudent "Juan Martinez")
+	(nameOfStudent "Juan_Martinez")
 	(passedCourses
 		[Practica2_Class7]
 		[Practica2_Class0]
@@ -610,6 +614,7 @@
 		[Practica2_Class5])
 	(semester 3)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10009] of  Course
@@ -622,6 +627,7 @@
 		[Practica2_Class2])
 	(semester 3)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10010] of  Course
@@ -634,6 +640,7 @@
 		[Practica2_Class5])
 	(semester 3)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10011] of  Course
@@ -646,6 +653,7 @@
 		[Practica2_Class2])
 	(semester 3)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10012] of  Course
@@ -655,6 +663,7 @@
 	(passed FALSE)
 	(semester 4)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10013] of  Course
@@ -666,6 +675,7 @@
 	(prerequisites [Practica2_Class10008])
 	(semester 4)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10014] of  Course
@@ -676,6 +686,7 @@
 	(passed FALSE)
 	(semester 4)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10015] of  Course
@@ -688,6 +699,7 @@
 	(passed FALSE)
 	(semester 4)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10016] of  Course
@@ -700,6 +712,7 @@
 		[Practica2_Class10009])
 	(semester 4)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10017] of  Course
@@ -713,6 +726,7 @@
 		[Practica2_Class10009])
 	(semester 5)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10018] of  Course
@@ -725,27 +739,28 @@
 		[Practica2_Class3])
 	(semester 6)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class10019] of  Specialty
 
-	(nameOfSpecialty "Computing"))
+	(nameOfSpecialty "computing"))
 
 ([Practica2_Class10020] of  Specialty
 
-	(nameOfSpecialty "Computer Engineering"))
+	(nameOfSpecialty "Computer_Engineering"))
 
 ([Practica2_Class10021] of  Specialty
 
-	(nameOfSpecialty "Software Engineering"))
+	(nameOfSpecialty "Software_Engineering"))
 
 ([Practica2_Class10022] of  Specialty
 
-	(nameOfSpecialty "Information Systems"))
+	(nameOfSpecialty "Information_Systems"))
 
 ([Practica2_Class10023] of  Specialty
 
-	(nameOfSpecialty "Information Technologies"))
+	(nameOfSpecialty "Information_Technologies"))
 
 ([Practica2_Class10024] of  Course
 
@@ -861,6 +876,7 @@
 ([Practica2_Class10033] of  Course
 
 	(ECTS 6.0)
+	(hours afternoon)
 	(nameOfCourse "Compilers")
 	(passed FALSE)
 	(prerequisites [Practica2_Class10029])
@@ -914,6 +930,7 @@
 		[Practica2_Class4])
 	(semester 3)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class2] of  Course
@@ -923,7 +940,12 @@
 	(passed FALSE)
 	(semester 1)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
+
+([Practica2_Class20001] of  Specialty
+
+	(nameOfSpecialty "General"))
 
 ([Practica2_Class3] of  Course
 
@@ -932,6 +954,7 @@
 	(passed FALSE)
 	(semester 2)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class4] of  Course
@@ -941,6 +964,7 @@
 	(passed FALSE)
 	(semester 2)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class5] of  Course
@@ -950,6 +974,7 @@
 	(passed FALSE)
 	(semester 2)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class6] of  Course
@@ -959,6 +984,7 @@
 	(passed FALSE)
 	(semester 2)
 	(semesterOpen BOTH)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 ([Practica2_Class7] of  Course
@@ -967,6 +993,7 @@
 	(nameOfCourse "Mathematical Foundations")
 	(passed FALSE)
 	(semester 1)
+	(specialty [Practica2_Class20001])
 	(type COMPULSORY))
 
 )
@@ -993,6 +1020,9 @@
 		(create-accessor read-write))
 	(slot points
 		(type INTEGER)
+		(create-accessor read-write))
+	(multislot justifications
+		(type STRING)
 		(create-accessor read-write))
 )
 
@@ -1025,7 +1055,7 @@
 	(export ?ALL)
 )
 
-;;; Module for processing of solutions
+;;; Module for generation of solutions
 (defmodule generation
 	(import MAIN ?ALL)
 	(export ?ALL)
@@ -1052,15 +1082,15 @@
 	(printout t crlf)
 	(format t "Semester: %d" ?self:semester)	
 	(printout t crlf)
-	(format t "Hours: %d" ?self:hours)
+	(format t "Hours: %s" ?self:hours)
 	(printout t crlf)
 	(format t "Difficulty: %s" ?self:difficulty)
 	(printout t crlf)
-	(format t "Specialty: %d" (send ?self:specialty get-nameOfSpecialty))
+	(format t "Specialty: %s" (send ?self:specialty get-nameOfSpecialty))
 	(printout t crlf)
-	(progn$ (?specializedTheme (send ?self get-specializedThemes))
-		(format t "%s " (send ?specializedTheme get-nameOfTheme))
-	)
+	;(progn$ (?specializedTheme (send ?self get-specializedThemes))
+	;	(format t "%s " (send ?specializedTheme get-nameOfTheme))
+	;)
         (printout t crlf)
 )
 
@@ -1070,6 +1100,7 @@
 	(printout t (send ?self:Course print))
 	(printout t crlf)
 	(format t "Recommendation level: %d %n" ?self:points)
+	(printout t "Justification: " crlf)
 	(printout t crlf)
 	(printout t "-----------------------------------" crlf)
 )
@@ -1123,10 +1154,10 @@
 ;;; TODO : do we need this function ? If yes, uncomment
 ;;; Function that returns the element with the most points
 (deffunction maxPoints ($?list)
-	(bind ?max-1)
+	(bind ?max -1)
 	(bind ?element nil)
 	(progn$ (?curr-rec $?list)
-		(bind ?curr-cont (send ?curr-rec get-course))
+		(bind ?curr-cont (send ?curr-rec get-Course))
 		(bind ?curr-point (send ?curr-rec get-points))
 		(if (> ?curr-point ?max)
 			then 
@@ -1258,6 +1289,7 @@
 	(focus StudentData)
 )
 
+;;; **************************************************************************
 
 ;;; Student Data collection Module
 
@@ -1306,9 +1338,20 @@
 	(bind ?pH (QuestionWithOptions "Please enter your preferred hours:" morning afternoon any))
 	(modify ?u (preferredHours ?pH))
 	(assert (pref4))
+)
+
+(defrule StudentPreferences::AskPreferences5
+	?u <- (Preferences (primarySpecialty ?primarySpecialty))
+	(not (pref5))
+	=>
+	(bind ?pS (SpecificNumberedQuestion "Please enter your primary specialty:" Computer_Engineering computing Information_Systems Information_Technologies Software_Engineering))
+	(modify ?u (primarySpecialty ?pS))
+	(assert (pref5))
 	(focus processing)
 )
 
+
+;;; **************************************************************************
 
 ;;; Processing Module
 
@@ -1324,26 +1367,118 @@
 )
 
 
+;;; Remove the unsuitable courses from the list
 
-(defrule CreateRecommendationsList 
+(defrule processing:processHours "remove the courses with unsuitable hours"
+	(Preferences (preferredHours ?pH))
+	?rec <- (object (is-a Recommendation) (Course ?cont1))
+	?cont <- (object (is-a Course) (hours ?hours))
+	(test (eq (instance-name ?cont) (instance-name ?cont1)))
+	(test (not (eq ?pH any))) 
+	(test (not (eq ?pH ?hours)))
+	=>
+	 (send ?rec delete)
+)
+
+
+;;; Increase the points of suitable courses according to a series of criteria
+
+(defrule processing::processSpecialty "increases the points of the courses that belong in the student's primary specialty"
+	(Preferences (primarySpecialty ?s))
+	?rec <- (object (is-a Recommendation) (Course ?conta) (points ?p)(justifications $?just))
+	?cont <- (object (is-a Course) (specialty ?spec))
+	(test (eq (instance-name ?cont) (instance-name ?conta)))
+	(test (eq ?s ?spec))
+	(not (processedSpecialty ?cont))
+	=>
+	(bind ?p (+ ?p 200))
+	(bind $?just (insert$ $?just (+ (length$ $?just) 1) "The course belongs to your primary specialty -> +200"))
+	(send ?rec put-points ?p)
+	(send ?rec put-justifications $?just)
+	(assert (processedSpecialty ?cont))
+)
+
+
+
+(defrule processing::PassToGeneration "Pass to the response generation module"
+	(declare(salience -10))
+	=>
+	(printout t "Generating response...")
+	(printout t crlf)
+	(focus generation)
+)
+
+
+
+;;; **************************************************************************
+
+
+;;; Response Generation Module
+
+
+(defrule generation::CreateRecommendationsList "create and unordered recommendation list"
 	(not (UnorderedRecommendationList))
 	=>
 	(assert (UnorderedRecommendationList))
 )
 
-(defrule CreateOrderedList 
+
+(defrule generation::AddRecommendation "Adds a recommendation to the list"
+	(declare (salience 10))
+	?rec <- (object (is-a Recommendation))
+	?fact <- (UnorderedRecommendationList (recommendations $?list))
+	(test (not (member$ ?rec $?list)))
+	=>
+	(bind $?list (insert$ $?list (+ (length$ $?list) 1) ?rec))
+	(modify ?fact (recommendations $?list))
+)
+
+
+(defrule generation::CreateOrderedList "Creates an ordered list of the recommendations" 
 	(not (OrderedRecommendationList))
 	(UnorderedRecommendationList (recommendations $?list))
 	=>
+	;;; we look for the maximum in each step
 	(bind $?result (create$ ))
-	(while (and (not (eq (length$ $?list) 0)) (< (length$ $?result) 21))  do
-		(bind ?curr-rec (maxPoints $?lista))
-		(bind $?lista (delete-member$ $?lista ?curr-rec))
+	(while (and (not (eq (length$ $?list) 0)) (< (length$ $?result) 6))  
+		do
+		(bind ?curr-rec (maxPoints $?list))
+		(bind $?list (delete-member$ $?list ?curr-rec))
 		(bind $?result (insert$ $?result (+ (length$ $?result) 1) ?curr-rec))
 	)
 	(assert (OrderedRecommendationList (recommendations $?result)))
 )
 
 
+(defrule generation::PassToPresentation "Pass to the presentation module"
+	(OrderedRecommendationList)
+	=>
+	(focus presentation)
+)
+
+;;; **************************************************************************
 
 
+;;; Presentation Module
+
+(defrule presentation::ShowResponse "Show the recommendations"
+	(OrderedRecommendationList (recommendations $?recs))
+	(not (final))
+	=>
+	(printout t crlf)
+	(printout t "This is your personalized recommendation of courses for this semester:")
+	(printout t crlf)
+
+	(printout t "*******************************************************" crlf)
+	;(printout t (instance-name ?self) crlf)
+	;(bind $?recs ?self:recommendations)
+	;(progn$ (?curr-rec $?recs)
+	;	(printout t (send ?curr-rec print))
+	;)
+	(progn$ (?curr-rec $?recs)
+		(printout t (send ?curr-rec print))
+	)
+	(printout t "*******************************************************" crlf)
+
+	(assert (final))
+)

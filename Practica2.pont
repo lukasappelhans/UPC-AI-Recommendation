@@ -1,4 +1,4 @@
-; Thu May 21 15:55:15 CEST 2015
+; Fri May 22 02:09:28 CEST 2015
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -67,7 +67,8 @@
 		(create-accessor read-write))
 	(single-slot hours
 		(type SYMBOL)
-		(allowed-values MORNING AFTERNOON BOTH)
+		(allowed-values morning afternoon both)
+		(default morning)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot mark
@@ -421,7 +422,8 @@
 		(create-accessor read-write))
 	(single-slot hours
 		(type SYMBOL)
-		(allowed-values MORNING AFTERNOON BOTH)
+		(allowed-values morning afternoon both)
+		(default morning)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot specialty
